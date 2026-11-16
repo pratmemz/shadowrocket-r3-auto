@@ -1,0 +1,14 @@
+
+name: Runner Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check runner
+        run: |
+          echo "GitHub Runner OK"
+          python3 --version
