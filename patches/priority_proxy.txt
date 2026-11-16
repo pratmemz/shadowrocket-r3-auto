@@ -1,0 +1,35 @@
+# ---- R3: high-priority foreign domain routing, before IP-based rules ----
+# Google / YouTube / Chrome DoH. These must not require China DNS for GEOIP.
+DOMAIN-SUFFIX,google.com,PROXY
+DOMAIN-SUFFIX,google.cn,PROXY
+DOMAIN-SUFFIX,google.com.hk,PROXY
+DOMAIN-SUFFIX,googleapis.com,PROXY
+DOMAIN-SUFFIX,googleusercontent.com,PROXY
+DOMAIN-SUFFIX,gstatic.com,PROXY
+DOMAIN-SUFFIX,ggpht.com,PROXY
+DOMAIN-SUFFIX,gvt1.com,PROXY
+DOMAIN-SUFFIX,gvt2.com,PROXY
+DOMAIN-SUFFIX,googlevideo.com,PROXY
+DOMAIN-SUFFIX,youtube.com,PROXY
+DOMAIN-SUFFIX,youtu.be,PROXY
+DOMAIN-SUFFIX,ytimg.com,PROXY
+DOMAIN-SUFFIX,youtube-nocookie.com,PROXY
+DOMAIN-SUFFIX,googleadservices.com,PROXY
+DOMAIN-SUFFIX,googlesyndication.com,PROXY
+DOMAIN-SUFFIX,googletagmanager.com,PROXY
+DOMAIN-SUFFIX,dns.google,PROXY
+DOMAIN-SUFFIX,cloudflare-dns.com,PROXY
+DOMAIN-SUFFIX,one.one.one.one,PROXY
+# The parent domain is proxied; the test's random lookup domains also avoid the GEOIP lookup.
+DOMAIN-SUFFIX,bufanche.com,PROXY
+DOMAIN-SUFFIX,dnsleaktest.com,PROXY
+DOMAIN-SUFFIX,ipleak.net,PROXY
+DOMAIN-SUFFIX,browserleaks.com,PROXY
+DOMAIN-SUFFIX,cloudflare.com,PROXY
+DOMAIN-SUFFIX,openai.com,PROXY
+DOMAIN-SUFFIX,chatgpt.com,PROXY
+# Direct-address public resolvers must not be mistaken for local services.
+IP-CIDR,8.8.8.8/32,PROXY,no-resolve
+IP-CIDR,8.8.4.4/32,PROXY,no-resolve
+IP-CIDR,1.1.1.1/32,PROXY,no-resolve
+IP-CIDR,1.0.0.1/32,PROXY,no-resolve

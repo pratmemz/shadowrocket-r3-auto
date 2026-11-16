@@ -1,0 +1,9 @@
+{
+  "source_url": "local-fixture",
+  "source_sha256": "a3c699aa8ae92bcb3640cc6ff016317b9f51b5c6e744fb725f9db959194b04bc",
+  "output_sha256": "6366d868f8aeaec99e1efae4ddfe3c19fdc43886f8bc9b5d39c7c8b05bcbc63b",
+  "upstream_rules": 392,
+  "output_rules": 590,
+  "automatic_self_update_url": null,
+  "status": "PASS_STATIC_CHECKS_CLIENT_TEST_NOT_PERFORMED"
+}
