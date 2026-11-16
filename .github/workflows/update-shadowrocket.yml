@@ -10,9 +10,11 @@ on:
 permissions:
   contents: write
 
+
 concurrency:
-  group: shadowrocket-r3-autosync
+  group: shadowrocket-r3-autosync-v2
   cancel-in-progress: false
+
 
 jobs:
   update:
