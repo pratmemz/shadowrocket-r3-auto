@@ -1,0 +1,50 @@
+
+name: R3 Shadowrocket upstream sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    # UTC 01:30 = Beijing 09:30
+    - cron: '30 1 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: shadowrocket-r3-autosync
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Prepare Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Fetch and build updated configuration
+        run: |
+          python scripts/build_r3.py --fetch --repo "$GITHUB_REPOSITORY" \
+            --output sr_cnip_r3_auto.conf --metadata build_manifest.json
+
+      - name: Commit tested output when changed
+        run: |
+          git add sr_cnip_r3_auto.conf build_manifest.json
+          if git diff --cached --quiet; then
+            echo "No upstream or output changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh validated Shadowrocket R3 overlay"
+          git push
