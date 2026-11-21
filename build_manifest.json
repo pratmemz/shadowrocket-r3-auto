@@ -1,7 +1,7 @@
 {
   "source_url": "https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/release/sr_cnip.conf",
-  "source_sha256": "187feee1bf6b611665c0e9074e304b09b0b9323688cf999e53402493f14f5f3d",
-  "output_sha256": "0f27af316ff89be2a35731d9d533444a299d0f779d6d334552a0f8335f3e6ecc",
+  "source_sha256": "257a95df8269321f9f2b4268836e09a3e88afe6a33186894acc81eafa8df9e62",
+  "output_sha256": "4a3a639094455f0f9068258f26d593b69ca94bd111fb07fa2a617aef90ec6659",
   "upstream_rules": 392,
   "output_rules": 590,
   "automatic_self_update_url": "https://raw.githubusercontent.com/pratmemz/shadowrocket-r3-auto/main/sr_cnip_r3_auto.conf",
